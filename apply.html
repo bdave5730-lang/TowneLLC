@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply — Towne LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="apply-page">
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            <span class="brand-mark small">T</span>
+            Towne <span class="accent">LLC</span>
+        </a>
+        <div class="nav-actions">
+            <button id="themeToggle" class="theme-toggle-inline" aria-label="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <main class="form-page">
+        <div class="form-card">
+            <h2>Job Application Form</h2>
+            <p class="form-sub">
+                Fill in your details accurately — every field is validated before
+                submission, and incorrect entries will be flagged.
+            </p>
+
+            <form id="regForm" novalidate>
+
+                <fieldset>
+                    <legend>Personal Information</legend>
+
+                    <div class="field">
+                        <label for="fullname">Full Name <span class="req">*</span></label>
+                        <input type="text" id="fullname" name="fullname" placeholder="e.g. Daisy Cloud" autocomplete="name">
+                        <span class="error-msg" data-error-for="fullname"></span>
+                    </div>
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="age">Age <span class="req">*</span></label>
+                            <input type="number" id="age" name="age" min="18" max="90" placeholder="e.g. 25">
+                            <span class="error-msg" data-error-for="age"></span>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Phone Number <span class="req">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 6605029401" autocomplete="tel">
+                            <span class="error-msg" data-error-for="phone"></span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+                        <span class="error-msg" data-error-for="email"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="citystate">City / State <span class="req">*</span></label>
+                        <input type="text" id="citystate" name="citystate" placeholder="e.g. Ikeja, Lagos" autocomplete="address-level2">
+                        <span class="error-msg" data-error-for="citystate"></span>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Job Preferences</legend>
+
+                    <div class="field">
+                        <label for="role">Desired Role <span class="req">*</span></label>
+                        <input type="text" id="role" name="role" placeholder="e.g. Data Analyst, Frontend Developer" list="roleSuggestions">
+                        <datalist id="roleSuggestions">
+                            <option value="Frontend Developer"></option>
+                            <option value="Backend Developer"></option>
+                            <option value="Full-Stack Developer"></option>
+                            <option value="Data Analyst"></option>
+                            <option value="Accountant"></option>
+                            <option value="Administrative Officer"></option>
+                            <option value="Customer Service Representative"></option>
+                            <option value="Sales / Marketing Officer"></option>
+                            <option value="Human Resources Officer"></option>
+                            <option value="Graphic Designer"></option>
+                            <option value="Other (specify)"></option>
+                        </datalist>
+                        <span class="error-msg" data-error-for="role"></span>
+                    </div>
+
+                    <div class="row-2">
+                        <div class="field">
+                            <label for="startDate">Earliest Start Date <span class="req">*</span></label>
+                            <input type="date" id="startDate" name="startDate">
+                            <span class="error-msg" data-error-for="startDate"></span>
+                        </div>
+                        <div class="field">
+                            <label for="travel">Willing to Travel / Relocate? <span class="req">*</span></label>
+                            <select id="travel" name="travel">
+                                <option value="">— Select —</option>
+                                <option value="Yes, fully">Yes, fully</option>
+                                <option value="Within my country only">Within my country only</option>
+                                <option value="No">No</option>
+                            </select>
+                            <span class="error-msg" data-error-for="travel"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Information</legend>
+
+                    <div class="field">
+                        <label for="accommodations">
+                            Accommodations Needed? <span class="voluntary">(Voluntary)</span>
+                        </label>
+                        <select id="accommodations" name="accommodations">
+                            <option value="No">No</option>
+                            <option value="Yes (specified below)">Yes — I'll specify below</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                        <span class="field-note">
+                            This helps us arrange any support you may need during the
+                            recruitment process. Answering is completely voluntary and
+                            will not affect your application.
+                        </span>
+                    </div>
+
+                    <div class="field" id="accomDetailField" hidden>
+                        <label for="accomDetail">Please describe the accommodation needed</label>
+                        <input type="text" id="accomDetail" name="accomDetail" placeholder="e.g. wheelchair-accessible interview venue">
+                        <span class="error-msg" data-error-for="accomDetail"></span>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Documents</legend>
+
+                    <div class="field">
+                        <label for="resume">Resume / CV <span class="req">*</span></label>
+                        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        <span class="field-note">PDF, DOC, DOCX, JPG or PNG. Maximum 5 MB.</span>
+                        <span class="error-msg" data-error-for="resume"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="id">Identification Card <span class="req">*</span></label>
+                        <input type="file" id="id" name="id" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                        <span class="field-note">PDF, DOC, DOCX, JPG or PNG. Maximum 5 MB.</span>
+                        <span class="error-msg" data-error-for="id"></span>
+                    </div>
+                </fieldset>
+
+                <div class="field checkbox-field">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="consent" name="consent">
+                        <span>I confirm the information provided is accurate, and I consent to
+                        Towne LLC storing and reviewing it for recruitment purposes.
+                        I understand an agent may contact me by phone or email.</span>
+                    </label>
+                    <span class="error-msg" data-error-for="consent"></span>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-primary btn-full">Submit Application</button>
+            </form>
+
+            <div id="successBanner" class="success-banner" hidden>
+                ✅ <strong>Application submitted!</strong> Your details, resume and ID
+                have been received. Our agency will message you once your information is
+                confirmed and matched with an opening. Keep your phone and email reachable.
+            </div>
+
+            <div id="errorBanner" class="success-banner" hidden style="background:var(--error);color:#fff;">
+                ⚠️ <strong>Submission failed.</strong> <span id="errorMsg"></span>
+            </div>
+
+            <p class="back-link"><a href="index.html">← Back to home</a></p>
+        </div>
+    </main>
+
+    <footer class="footer footer-simple">
+        <span>© 2026 Towne LLC · Contact: <a href="mailto:townellc228@gmail.com">townellc228@gmail.com</a></span>
+    </footer>
+
+    <script src="function.js"></script>
+</body>
+</html>
